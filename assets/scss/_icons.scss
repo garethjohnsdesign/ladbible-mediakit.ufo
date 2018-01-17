@@ -1,0 +1,65 @@
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+/* ==========================================
+Single-colored icons can be modified like so:
+.icon-name {
+  font-size: 32px;
+  color: red;
+}
+========================================== */
+
+.icon-logo {
+  width: 2em;
+}
+
+.hero .icon-logo {
+  font-size: 10rem;
+  color: $color--white;
+}
+
+footer .icon-logo {
+  font-size: 2rem;
+  color: $color--white;
+}
+
+
+.icon-the-guardian {
+  width: 5.6591796875em;
+}
+
+.icon-the-guardian {
+  font-size: 2rem;
+}
+
+.icon-play {
+  font-size: 5rem;
+  @include breakpoint(small only) {
+  font-size: 3rem;
+  }
+}
+
+.icon-rnli-logo {
+  width: 2.154296875em;
+  font-size: 10rem;
+  @include breakpoint(small only) {
+  font-size: 5rem;
+  }
+}
+
+.icon-uokm8-logo {
+  width: 0.8154296875em;
+  font-size: 20rem;
+  color: $color--black;
+//   padding: 1rem 1rem 3rem 1rem;
+  @include breakpoint(small only) {
+  font-size: 8rem;
+  margin-bottom: 2rem
+  }
+}

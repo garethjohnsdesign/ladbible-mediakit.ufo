@@ -1,0 +1,382 @@
+//  Table of Contents:
+//
+//   1. Mixins
+//   2. Global
+//   3. Typography
+//   4. Animations
+//   5. Lightgallery
+//   6. Hero
+//   7. Who
+//   8. Quotes
+//   9. Audience
+//   10. Manifesto
+//   11. Stats
+//   12. Content
+//   13. Case Study One
+//   14. Case Study Two
+//   15. Thanks
+//   16. Videos
+//   17. Footer
+
+// 1. Mixins
+// ---------
+
+@mixin margin-one {
+  margin-bottom: 1rem;
+}
+
+@mixin margin-two {
+  margin-bottom: 2rem;
+}
+
+@mixin margin-three {
+  margin-bottom: 3rem;
+}
+
+@mixin margin-four {
+  margin-bottom: 4rem;
+}
+
+@mixin margin-five {
+  margin-bottom: 5rem;
+}
+
+@mixin margin-six {
+  margin-bottom: 6rem;
+}
+
+
+@mixin links ($link, $hover) {
+  a {
+    color: $link;
+    &:hover {
+      color: $hover;   
+    }
+  }
+}
+
+@mixin link-underline($color, $size, $duration, $centered) {
+  color: $color;
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  
+  &:before {
+    background-color: $color;
+    content: '';
+    height: $size;
+    position: absolute;
+    bottom: 0 - ($size/2);
+    transition: $duration;
+    width: 0;
+    @if $centered == 'true' {
+      left: 50%;
+      transform: translateX(-50%); 
+    }
+  }
+  
+  &:hover {
+    &:before {
+      width: 100%;
+    }
+  }
+}
+
+// 2. Global
+// ---------
+
+body {
+  cursor: default;
+}
+
+svg {
+  max-width: 100%;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+::selection {
+  background: $primary-color;
+  color: $secondary-color;
+}
+
+:focus {
+  outline: 0;
+}
+
+section {
+  overflow: hidden;
+  overflow-x: hidden;
+  padding: 2rem;
+  @include breakpoint(medium) {
+  padding: 2rem;
+  }
+  @include breakpoint(large) {
+  padding: 3rem;
+  }
+  @include breakpoint(xlarge) {
+  padding: 4rem;
+  }
+}
+
+section img {
+  padding: 1rem 0rem 1rem 0rem;
+  @include breakpoint(medium) {
+  padding: 2rem 0rem 2rem 0rem;
+  }
+}
+
+[data-aos] {
+overflow: hidden;
+}
+
+// 3. Typography
+// -------------
+
+a {
+  transition: $primary-transition;
+}
+
+a:hover {
+  color: $color--highlight;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+i, cite, em, var, address, dfn {
+  font-style: normal;
+}
+
+h1 {
+  text-transform: uppercase;
+  color: $color--highlight;
+}
+
+h1:before {
+  content: "— ";
+}
+
+h2 {
+  text-transform: uppercase;
+  line-height: 0.9;
+}
+
+span {
+  font-family: $highlight-font-family;
+}
+
+span.red {
+  color: $color--highlight;
+}
+
+span.white {
+  color: $color--white;
+}
+
+// 4. Animations
+// ------
+
+[data-aos='fade-up'] {
+  transform: translate(0, 1rem);
+}
+
+// 5. Lightgallery
+// ---------------
+
+.lg-sub-html {
+  font-family: $header-font-family;
+}
+
+// 6. Hero
+// ------
+
+.hero {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  height: 100vh;
+}
+
+.hero__text h1 {
+  color: $color--white;
+  font-size: 2rem;
+}
+
+.hero span {
+  color: $color--white;
+}
+
+.hero h1:before {
+  content: "";
+}
+
+
+// 7. Who
+// ------
+
+.who {
+  background-color: $color--black;
+  color: $color--off-white;
+}
+
+
+// 8. Quotes
+// ------
+
+.quotes {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 25% 50%;
+  height: 90vh;
+  color: $color--off-white;
+  @include breakpoint(medium) {
+  background-position: 50% 50%;
+  }
+}
+
+// 9. Audience
+// ------
+
+.audience {
+}
+
+// 10. Manifesto
+// ------
+
+.manifesto {
+}
+
+// 11. Stats
+// ------
+
+.stats {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  height: 90vh;
+  color: $color--off-white;
+}
+
+// 12. Content
+// ------
+
+.content {
+  background-color: $color--black;
+  color: $color--off-white;
+}
+
+// 13. Case Study One
+// ------
+
+.case-one {
+  position: relative;
+}
+
+.case-one video {
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}
+
+// 14. Case Study Two
+// ------
+
+.case-two {
+  background-color: #E6C746;
+  position: relative;
+}
+
+.case-two__video {
+  margin-top: 4rem;
+}
+// 15. Thanks
+// ------
+
+.thanks {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  height: 100vh;
+  h2 {
+  font-size: 2rem;
+  @include breakpoint(medium) {
+  font-size: 4rem;
+  }
+  @include breakpoint(large) {
+  font-size: 4rem;
+  }
+  @include breakpoint(xlarge) {
+  font-size: 4rem;
+  }
+  }
+}
+
+// 16. Videos
+// ------
+
+video {
+  transition: $primary-transition;
+  filter: saturate(75%) brightness(100%); 
+}
+
+video:hover {
+  transition: $primary-transition;
+  filter: saturate(50%) brightness(80%); 
+}
+
+.video__item a {
+  display: block;
+  width: 100%;
+  position: relative; 
+}
+ 
+.video__item a:hover img {
+  filter: saturate(0%) brightness(50%); 
+}
+    
+.video__item a img {
+  transition: $primary-transition;
+  filter: saturate(100%) brightness(80%); 
+  display: block;
+}
+
+.video__item a .item__title {
+  position: absolute;
+  top: 0rem;
+  left: 0rem;
+  padding: 2rem;
+  width: 100%;
+  height: 100%;
+  color: $color--white; 
+}
+
+.video-gallery .icon {
+  margin-bottom: 2rem;
+}
+
+
+// 17. Footer
+// ---------
+
+footer {
+  background-color: scale-color($primary-color, $lightness: 0%);
+  color: $color--off-white;
+}
+
+footer .menu .menu-text {
+  color: $color--white;
+}
+
+footer li a {
+  color: $color--white;
+}
